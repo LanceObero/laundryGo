@@ -48,13 +48,10 @@ class MainActivity : AppCompatActivity() {
 
         // Handle login button click
         buttonLogin.setOnClickListener {
-            val email = editTextEmail.text.toString().trim()
-            val password = editTextPassword.text.toString().trim()
-
-            if (validateInput(email, password)) {
-                loginUser(email, password)
-            }
+            val intent = Intent(this, home::class.java)
+            startActivity(intent)
         }
+
     }
 
     private fun validateInput(email: String, password: String): Boolean {
