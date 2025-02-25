@@ -14,13 +14,13 @@ import org.json.JSONObject
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var editTextName: EditText
-    private lateinit var editTextLastName: EditText
     private lateinit var editTextAddress: EditText
     private lateinit var editTextEmail: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var editTextConfirmPassword: EditText
     private lateinit var buttonSignup: Button
-    private lateinit var buttonBack: Button
+
+    private lateinit var textViewLogin: TextView // Added TextView for navigation
     private lateinit var progressDialog: ProgressDialog
     private lateinit var requestQueue: RequestQueue
 
@@ -28,21 +28,23 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        editTextName = findViewById(R.id.editTextName)
-        editTextLastName = findViewById(R.id.editTextLastName)
+        editTextName = findViewById(R.id.editTextLastName)
         editTextAddress = findViewById(R.id.editTextAddress)
         editTextEmail = findViewById(R.id.editTextEmail)
         editTextPassword = findViewById(R.id.editTextPassword)
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword)
         buttonSignup = findViewById(R.id.buttonSignup)
-        buttonBack = findViewById(R.id.buttonBack)
+
+        textViewLogin = findViewById(R.id.signin) // Initialize TextView
 
         requestQueue = Volley.newRequestQueue(this)
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Signing up...")
 
         buttonSignup.setOnClickListener { registerUser() }
-        buttonBack.setOnClickListener {
+
+        // Handle TextView click event to go to MainActivity
+        textViewLogin.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -50,13 +52,12 @@ class SignupActivity : AppCompatActivity() {
 
     private fun registerUser() {
         val name = editTextName.text.toString().trim()
-        val lastName = editTextLastName.text.toString().trim()
         val address = editTextAddress.text.toString().trim()
         val email = editTextEmail.text.toString().trim()
         val password = editTextPassword.text.toString().trim()
         val confirmPassword = editTextConfirmPassword.text.toString().trim()
 
-        if (name.isEmpty() || lastName.isEmpty() || address.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() || address.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
         }
@@ -98,7 +99,6 @@ class SignupActivity : AppCompatActivity() {
             }) {
             override fun getParams(): Map<String, String> = hashMapOf(
                 "name" to name,
-                "last_name" to lastName,
                 "address" to address,
                 "email" to email,
                 "password" to password

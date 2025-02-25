@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editTextEmail: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var buttonLogin: Button
-    private lateinit var textViewSignIn: TextView
+    private lateinit var textViewSignUp: TextView
+    private lateinit var textViewForgotPassword: TextView
     private lateinit var requestQueue: RequestQueue
     private lateinit var progressDialog: ProgressDialog
 
@@ -33,39 +34,47 @@ class MainActivity : AppCompatActivity() {
         editTextEmail = findViewById(R.id.editTextEmail)
         editTextPassword = findViewById(R.id.editTextPassword)
         buttonLogin = findViewById(R.id.buttonLogin)
-        textViewSignIn = findViewById(R.id.textViewSignIn)
+        textViewSignUp = findViewById(R.id.textViewSignIn)
+        textViewForgotPassword = findViewById(R.id.Forgotpass)
 
         // Initialize Volley request queue and ProgressDialog
         requestQueue = Volley.newRequestQueue(this)
         progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Logging in...")
 
-        // Navigate to SignupActivity when clicking on textViewSignIn
-        textViewSignIn.setOnClickListener {
-            val intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+        // Navigate to SignupActivity when clicking "Sign Up"
+        textViewSignUp.setOnClickListener {
+            startActivity(Intent(this, SignupActivity::class.java))
+        }
+
+        // Navigate to ForgotPasswordActivity when clicking "Forgot Password"
+        textViewForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
         // Handle login button click
         buttonLogin.setOnClickListener {
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
-        }
+            val email = editTextEmail.text.toString().trim()
+            val password = editTextPassword.text.toString().trim()
 
+            if (validateInput(email, password)) {
+                loginUser(email, password)
+            }
+        }
     }
 
     private fun validateInput(email: String, password: String): Boolean {
         return when {
             email.isEmpty() || password.isEmpty() -> {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                showToast("Please fill all fields")
                 false
             }
             !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
-                Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+                showToast("Invalid email format")
                 false
             }
             password.length < 6 -> {
-                Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show()
+                showToast("Password must be at least 6 characters")
                 false
             }
             else -> true
@@ -85,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             },
             Response.ErrorListener { error ->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Login failed: ${error.message}", Toast.LENGTH_SHORT).show()
+                showToast("Login failed: ${error.message}")
             }) {
 
             override fun getParams(): Map<String, String> {
@@ -99,10 +108,10 @@ class MainActivity : AppCompatActivity() {
     private fun handleLoginResponse(response: String) {
         try {
             val jsonResponse = JSONObject(response)
-            val status = jsonResponse.getString("status")
-            val message = jsonResponse.getString("message")
+            val status = jsonResponse.optString("status")
+            val message = jsonResponse.optString("message")
 
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            showToast(message)
 
             if (status == "success") {
                 val intent = Intent(this, home::class.java)
@@ -111,8 +120,12 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "Error parsing response", Toast.LENGTH_SHORT).show()
+            showToast("Error parsing response")
             e.printStackTrace()
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
