@@ -16,6 +16,12 @@
         android:theme="@style/Theme.LaundryGo"
         tools:targetApi="31">
         <activity
+            android:name=".FabricConditionerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SoapActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
