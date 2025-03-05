@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 class HomeFragment : Fragment() {
     override fun onCreateView(
@@ -21,6 +24,20 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Handle click for user icon
+        val userIcon: ImageView = view.findViewById(R.id.user)
+        userIcon.setOnClickListener {
+            replaceFragment(UserFragment())
+        }
+
         return view
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment) // Make sure you have a FrameLayout with this ID in your Activity
+        transaction.addToBackStack(null) // Allows back navigation
+        transaction.commit()
     }
 }

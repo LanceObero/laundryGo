@@ -5,38 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".SoapActivity">
+    tools:context=".FabricConditionerActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/selectedSoapTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="Fabric Conditioners"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Choose your Fabric Conditioner"
-            android:textColor="#000000"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+    <!-- Fabric Conditioner 1 -->
 
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/fabric1"
         android:layout_width="351dp"
         android:layout_height="172dp"
-        android:layout_margin="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="220dp"
         android:background="@drawable/matcha2"
         android:clickable="true"
         android:elevation="6dp"
@@ -45,117 +35,105 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@id/selectedSoapTextView">
 
         <ImageView
             android:layout_width="112dp"
             android:layout_height="123dp"
-            android:contentDescription="Soap 3"
-            android:src="@drawable/BREEZE" />
+            android:src="@drawable/downy" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="DEL"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="351dp"
-        android:layout_height="172dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/matcha2"
-        android:clickable="true"
-        android:elevation="6dp"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <ImageView
-            android:layout_width="112dp"
-            android:layout_height="123dp"
-            android:contentDescription="Soap 2"
-            android:src="@drawable/ARIEL" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="CHAMPION"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="351dp"
-        android:layout_height="172dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/matcha2"
-        android:clickable="true"
-        android:elevation="6dp"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <ImageView
-            android:layout_width="112dp"
-            android:layout_height="123dp"
-            android:contentDescription="Soap 4"
-            android:src="@drawable/SURF" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="SURF"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="351dp"
-        android:layout_height="172dp"
-        android:layout_margin="8dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/matcha2"
-        android:clickable="true"
-        android:elevation="6dp"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <ImageView
-            android:layout_width="112dp"
-            android:layout_height="123dp"
-            android:contentDescription="Soap 1"
-            android:src="@drawable/TIDE" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="DOWNY"
-            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/fabric2"
+        android:layout_width="351dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="428dp"
+        android:background="@drawable/matcha2"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectedSoapTextView">
 
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="123dp"
+            android:src="@drawable/downy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOWNY"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fabric3"
+        android:layout_width="351dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="624dp"
+        android:background="@drawable/matcha2"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectedSoapTextView">
+
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="123dp"
+            android:src="@drawable/downy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOWNY"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fabric4"
+        android:layout_width="351dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/matcha2"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectedSoapTextView">
+
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="123dp"
+            android:src="@drawable/downy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOWNY"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Repeat this LinearLayout for 3 more fabric conditioners -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

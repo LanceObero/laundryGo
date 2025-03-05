@@ -1,20 +1,25 @@
 package com.example.laundrygo
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class FabricConditionerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_fabric_conditioner)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        // Set click listeners for fabric conditioner choices
+        findViewById<View>(R.id.fabric1).setOnClickListener { navigateToChoiceActivity() }
+        findViewById<View>(R.id.fabric2).setOnClickListener { navigateToChoiceActivity() }
+        findViewById<View>(R.id.fabric3).setOnClickListener { navigateToChoiceActivity() }
+        findViewById<View>(R.id.fabric4).setOnClickListener { navigateToChoiceActivity() }
+    }
+
+    private fun navigateToChoiceActivity() {
+        val intent = Intent(this, ChoiceActivity::class.java)
+        startActivity(intent)
+        finish() // Close FabricActivity so the user can't go back
     }
 }

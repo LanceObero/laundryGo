@@ -18,15 +18,15 @@ class home : AppCompatActivity() {
         }
 
         bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_orders -> loadFragment(OrdersFragment())
-                R.id.nav_profile -> loadFragment(ProfileFragment())
-                R.id.nav_exit -> {
-                    finishAffinity() // Closes the app
-                    return@setOnItemSelectedListener true
-                }
+            val selectedFragment: Fragment? = when (item.itemId) {
+                R.id.nav_home -> HomeFragment()
+                R.id.nav_orders -> OrdersFragment()
+                R.id.nav_profile -> ProfileFragment()
+                R.id.nav_exit -> ReviewsFragment() // Load Reviews Fragment
+                else -> null
             }
+
+            selectedFragment?.let { loadFragment(it) }
             true
         }
     }

@@ -17,10 +17,24 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ImageView
+        android:id="@+id/user"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/profile"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
 
     <LinearLayout
         android:id="@+id/button1"
@@ -42,7 +56,7 @@
         <ImageView
             android:layout_width="137dp"
             android:layout_height="103dp"
-            android:src="@drawable/ic_washing_machine" />
+            android:src="@drawable/washing" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,68 +69,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/button2"
-        android:layout_width="332dp"
-        android:layout_height="151dp"
-        android:background="@drawable/matcha2"
-        android:clickable="true"
-        android:elevation="6dp"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="456dp">
-
-        <ImageView
-            android:layout_width="133dp"
-            android:layout_height="104dp"
-            android:src="@drawable/ic_dryer" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="DRY"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/button3"
         android:layout_width="334dp"
         android:layout_height="142dp"
-        android:layout_marginStart="44dp"
-        android:background="@drawable/matcha2"
-        android:clickable="true"
-        android:elevation="6dp"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:layout_constraintVertical_bias="0.036">
-
-        <ImageView
-            android:layout_width="133dp"
-            android:layout_height="104dp"
-            android:src="@drawable/ic_bleach" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="BLEACH"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/button4"
-        android:layout_width="340dp"
-        android:layout_height="138dp"
         android:background="@drawable/matcha2"
         android:clickable="true"
         android:elevation="6dp"
@@ -125,15 +80,47 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintVertical_bias="0.038">
+
+        <ImageView
+            android:layout_width="133dp"
+            android:layout_height="104dp"
+            android:src="@drawable/handwash" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="HANDWASH"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button4"
+        android:layout_width="332dp"
+        android:layout_height="151dp"
+        android:background="@drawable/matcha2"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811">
+        app:layout_constraintVertical_bias="0.664">
 
         <ImageView
             android:layout_width="137dp"
             android:layout_height="103dp"
-            android:src="@drawable/ic_washing_machine" />
+            android:src="@drawable/washing2" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -153,7 +140,42 @@
         android:textColor="#8D011C"
         android:textSize="25dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <LinearLayout
+        android:id="@+id/button2"
+        android:layout_width="332dp"
+        android:layout_height="151dp"
+        android:background="@drawable/matcha2"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.504">
+
+        <ImageView
+            android:layout_width="133dp"
+            android:layout_height="104dp"
+            android:src="@drawable/shirt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="FOLD"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

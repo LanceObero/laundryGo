@@ -53,14 +53,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Handle login button click
+        // Handle login button click
         buttonLogin.setOnClickListener {
             val email = editTextEmail.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
 
             if (validateInput(email, password)) {
-                loginUser(email, password)
+                // Temporarily navigate to home.kt without API request
+                val intent = Intent(this, home::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
             }
         }
+
     }
 
     private fun validateInput(email: String, password: String): Boolean {
