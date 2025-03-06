@@ -3,6 +3,7 @@ package com.example.laundrygo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class SoapActivity : AppCompatActivity() {
@@ -10,27 +11,31 @@ class SoapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_soap)
 
-        // Set click listeners for detergent options
-        findViewById<View>(R.id.linearLayout2).setOnClickListener {
-            navigateToFabricConditioner("Tide")
+        // Map detergent options to their respective IDs
+        val soapOptions = mapOf(
+            R.id.linearLayout2 to "Tide",
+            R.id.linearLayout3 to "Breeze",
+            R.id.linearLayout4 to "Surf",
+            R.id.linearLayout to "Ariel"
+        )
+
+        // Set click listeners dynamically
+        soapOptions.forEach { (layoutId, soapName) ->
+            findViewById<View>(layoutId).setOnClickListener {
+                navigateToFabricConditioner(soapName)
+            }
         }
 
-        findViewById<View>(R.id.linearLayout3).setOnClickListener {
-            navigateToFabricConditioner("Breeze")
-        }
-
-        findViewById<View>(R.id.linearLayout4).setOnClickListener {
-            navigateToFabricConditioner("Surf")
-        }
-
-        findViewById<View>(R.id.linearLayout).setOnClickListener {
-            navigateToFabricConditioner("Ariel")
+        // Back button functionality
+        findViewById<ImageView>(R.id.backButton).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 
     private fun navigateToFabricConditioner(selectedSoap: String) {
-        val intent = Intent(this, FabricConditionerActivity::class.java)
-        intent.putExtra("selectedSoap", selectedSoap) // Pass selected detergent
+        val intent = Intent(this, FabricConditionerActivity::class.java).apply {
+            putExtra("selectedSoap", selectedSoap) // Pass selected detergent
+        }
         startActivity(intent)
     }
 }

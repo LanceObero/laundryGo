@@ -3,6 +3,7 @@ package com.example.laundrygo
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class ChoiceActivity : AppCompatActivity() {
@@ -15,6 +16,9 @@ class ChoiceActivity : AppCompatActivity() {
         buttonDelivery.setOnClickListener {
             val intent = Intent(this, DeliveryActivity::class.java)
             startActivity(intent)
+        }
+        findViewById<ImageView>(R.id.backButton).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 }

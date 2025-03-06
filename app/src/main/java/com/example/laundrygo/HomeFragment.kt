@@ -18,19 +18,35 @@ class HomeFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        // Wash Button - Navigates to SoapActivity
         val washButton: LinearLayout = view.findViewById(R.id.button1)
         washButton.setOnClickListener {
-            val intent = Intent(activity, SoapActivity::class.java)
-            startActivity(intent)
+            navigateToSoapActivity()
         }
 
-        // Handle click for user icon
+        // Handwash Button - Navigates to SoapActivity
+        val handwashButton: LinearLayout = view.findViewById(R.id.button3)
+        handwashButton.setOnClickListener {
+            navigateToSoapActivity()
+        }
+
+        val washdryfoldButton: LinearLayout = view.findViewById(R.id.button4)
+        washdryfoldButton.setOnClickListener{
+            navigateToSoapActivity()
+        }
+
+        // Handle click for user icon - Navigates to UserFragment
         val userIcon: ImageView = view.findViewById(R.id.user)
         userIcon.setOnClickListener {
             replaceFragment(UserFragment())
         }
 
         return view
+    }
+
+    private fun navigateToSoapActivity() {
+        val intent = Intent(activity, SoapActivity::class.java)
+        startActivity(intent)
     }
 
     private fun replaceFragment(fragment: Fragment) {

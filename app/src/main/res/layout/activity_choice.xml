@@ -8,6 +8,16 @@
     tools:context=".ChoiceActivity">
 
 
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="47dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="235dp"
