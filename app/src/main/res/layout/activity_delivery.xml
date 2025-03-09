@@ -7,4 +7,188 @@
     android:layout_height="match_parent"
     tools:context=".DeliveryActivity">
 
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="235dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#8D011C"
+        android:text="Confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.969" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/edittext_border"
+        android:hint="MM//DD/YY"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivgcash"
+        android:layout_width="167dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/gcash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etaddress"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <ImageView
+        android:id="@+id/ivcash"
+        android:layout_width="167dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etaddress"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="47dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/back"
+        app:layout_constraintEnd_toStartOf="@+id/sign"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="157dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="48dp"
+        android:text="Full Name"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+    <EditText
+        android:id="@+id/etfullname"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="232dp"
+        android:background="@drawable/edittext_border"
+
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etaddress"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="423dp"
+        android:background="@drawable/edittext_border"
+
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/sign"
+        android:layout_width="163dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/deliver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etnum"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/edittext_border"
+
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvcontact"
+        android:layout_width="157dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Contact Number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etfullname" />
+
+    <TextView
+        android:id="@+id/tvaddress"
+        android:layout_width="157dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Contact Number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnum" />
+
+    <TextView
+        android:id="@+id/tvpayment"
+        android:layout_width="182dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="24dp"
+        android:text="Select payment method:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etaddress" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="219dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="4dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextEmail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

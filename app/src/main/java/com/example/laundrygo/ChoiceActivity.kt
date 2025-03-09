@@ -12,11 +12,18 @@ class ChoiceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choice)
 
         val buttonDelivery = findViewById<Button>(R.id.buttonLogin2)
+        val buttonPickup = findViewById<Button>(R.id.buttonLogin)
+
+        buttonPickup.setOnClickListener {
+            val intent = Intent(this, pickupActivity::class.java) // Fixed
+            startActivity(intent)
+        }
 
         buttonDelivery.setOnClickListener {
             val intent = Intent(this, DeliveryActivity::class.java)
             startActivity(intent)
         }
+
         findViewById<ImageView>(R.id.backButton).setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

@@ -1,20 +1,22 @@
-package com.example.laundrygo
+package com.example.laundrygo  // Ensure this matches your app package name
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
+import android.widget.TimePicker  // ✅ Add this import to fix the error
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class DeliveryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_delivery)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Initialize and set 24-hour format
+        val timePicker = findViewById<TimePicker>(R.id.timePicker)
+        timePicker.setIs24HourView(true) // ✅ Fixes the unresolved reference
+
+        // Back button click listener
+        findViewById<ImageView>(R.id.backButton).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
     }
 }

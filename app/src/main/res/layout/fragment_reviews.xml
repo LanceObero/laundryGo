@@ -12,6 +12,7 @@
         android:text="User Reviews"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#8D011C"
         android:layout_gravity="center" />
 
     <ListView

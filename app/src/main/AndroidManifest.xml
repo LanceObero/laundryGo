@@ -16,6 +16,15 @@
         android:theme="@style/Theme.LaundryGo"
         tools:targetApi="31">
         <activity
+            android:name=".TrackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pickupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pickup"
+            android:exported="false" />
+        <activity
             android:name=".DeliveryActivity"
             android:exported="false" />
         <activity

@@ -18,13 +18,13 @@ class HomeFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // Wash Button - Navigates to SoapActivity
+        // Navigates to SoapActivity
         val washButton: LinearLayout = view.findViewById(R.id.button1)
         washButton.setOnClickListener {
             navigateToSoapActivity()
         }
 
-        // Handwash Button - Navigates to SoapActivity
+        // Navigates to SoapActivity
         val handwashButton: LinearLayout = view.findViewById(R.id.button3)
         handwashButton.setOnClickListener {
             navigateToSoapActivity()
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             navigateToSoapActivity()
         }
 
-        // Handle click for user icon - Navigates to UserFragment
+        // Navigates to UserFragment
         val userIcon: ImageView = view.findViewById(R.id.user)
         userIcon.setOnClickListener {
             replaceFragment(UserFragment())
@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment) // Make sure you have a FrameLayout with this ID in your Activity
-        transaction.addToBackStack(null) // Allows back navigation
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 }
