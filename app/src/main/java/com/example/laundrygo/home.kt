@@ -14,7 +14,7 @@ class home : AppCompatActivity() {
 
         // Load the default fragment
         if (savedInstanceState == null) {
-            loadFragment(HomeFragment())
+            loadFragment(HomeFragment()) // Load HomeFragment by default
         }
 
         bottomNav.setOnItemSelectedListener { item ->
@@ -36,4 +36,5 @@ class home : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
+
 }

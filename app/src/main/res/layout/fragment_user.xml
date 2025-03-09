@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!-- Back Button -->
-    <ImageView
-        android:id="@+id/backButton"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/back"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Profile Title -->
     <TextView
         android:id="@+id/profileTitle"
@@ -43,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileTitle" />
 
-    <!-- Name with Edit Icon -->
+    <!-- Name -->
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
@@ -56,12 +45,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profileImage" />
 
-
-
     <!-- Profile Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="360dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
@@ -71,55 +58,68 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
             <!-- Account Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Account"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp"
-                android:backgroundTint="#8D011C" />
 
             <!-- Email -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
+                android:textSize="14sp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:layout_marginTop="8dp" />
 
             <TextView
+                android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="joelravanera@gmail.com"
-                android:backgroundTint="#8D011C"
-                android:textSize="14sp" />
+                android:text="joel@example.com"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:background="@drawable/border_box"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
 
             <!-- Gender -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="Gender"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/genderText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Male"
-                android:backgroundTint="#8D011C"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:background="@drawable/border_box"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Contact Number -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Number"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/contactText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+63 912 345 6789"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:background="@drawable/border_box"
+                android:textColor="@color/black" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -134,7 +134,8 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

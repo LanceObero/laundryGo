@@ -62,7 +62,7 @@
         android:clickable="true"
         android:focusable="true"
         android:text="Forgot password?"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="#8D011C"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

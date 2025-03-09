@@ -132,6 +132,7 @@
         android:layout_height="58dp"
         android:text="Get's Started"
         android:textSize="35dp"
+        android:textColor="#8D011C"
         app:layout_constraintBottom_toTopOf="@+id/editTextLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
