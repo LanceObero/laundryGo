@@ -25,6 +25,12 @@ class HomeFragment : Fragment() {
             navigateToSoapActivity()
         }
 
+        // Navigate to ChoiceActivity when 'fold' button is clicked
+        val foldButton: LinearLayout = view.findViewById(R.id.button2)
+        foldButton.setOnClickListener {
+            navigateToChoiceActivity() // ✅ Proper function call
+        }
+
         // Navigate to SoapActivity when 'handwash' button is clicked
         val handwashButton: LinearLayout = view.findViewById(R.id.button3)
         handwashButton.setOnClickListener {
@@ -58,6 +64,12 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 
+    // ✅ New function to navigate to ChoiceActivity
+    private fun navigateToChoiceActivity() {
+        val intent = Intent(activity, ChoiceActivity::class.java)
+        startActivity(intent)
+    }
+
     // Replace the current fragment with the given fragment
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
@@ -67,6 +79,7 @@ class HomeFragment : Fragment() {
         transaction.commit() // Commit the transaction to apply the change
     }
 }
+
 
 
 
