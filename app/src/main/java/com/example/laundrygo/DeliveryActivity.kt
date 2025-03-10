@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 class DeliveryActivity : AppCompatActivity() {
 
     // Define your other views and properties here
-
     private lateinit var etFullName: EditText
     private lateinit var etContact: EditText
     private lateinit var etAddress: EditText
@@ -19,6 +18,7 @@ class DeliveryActivity : AppCompatActivity() {
     private lateinit var btnConfirm: Button
     private lateinit var ivGcash: ImageView
     private lateinit var ivCash: ImageView
+    private lateinit var backButton: ImageView  // Back button reference
 
     private var selectedPaymentMethod: String = ""
 
@@ -37,6 +37,7 @@ class DeliveryActivity : AppCompatActivity() {
         btnConfirm = findViewById(R.id.buttonLogin)
         ivGcash = findViewById(R.id.ivgcash)
         ivCash = findViewById(R.id.ivcash)
+        backButton = findViewById(R.id.backButton) // Initialize back button
 
         ivGcash.setOnClickListener {
             selectedPaymentMethod = "GCash"
@@ -54,6 +55,15 @@ class DeliveryActivity : AppCompatActivity() {
             // Call the function here
             showConfirmationDialog()
         }
+
+        // Handle back button click
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed() // Navigates back to the previous activity
     }
 
     // Ensure this method is defined within the DeliveryActivity class
@@ -112,7 +122,4 @@ class DeliveryActivity : AppCompatActivity() {
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
         builder.create().show()
     }
-
-
 }
-
