@@ -68,58 +68,78 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Email"
-                android:textSize="14sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="8dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="joel@example.com"
-                android:textSize="14sp"
-                android:padding="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/border_box"
+                android:padding="8dp"
+                android:text="joel@example.com"
                 android:textColor="@color/black"
-                android:layout_marginBottom="8dp" />
+                android:textSize="14sp" />
 
             <!-- Gender -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gender"
-                android:textSize="14sp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/genderText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:textSize="14sp"
-                android:padding="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/border_box"
+                android:padding="8dp"
+                android:text="Male"
                 android:textColor="@color/black"
-                android:layout_marginBottom="8dp" />
+                android:textSize="14sp" />
 
             <!-- Contact Number -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Number"
-                android:textSize="14sp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/contactText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+63 912 345 6789"
-                android:textSize="14sp"
-                android:padding="8dp"
                 android:background="@drawable/border_box"
-                android:textColor="@color/black" />
+                android:padding="8dp"
+                android:text="+63 912 345 6789"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!-- Address -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/addressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_box"
+                android:padding="8dp"
+                android:text="123 Main Street, City, Country"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
