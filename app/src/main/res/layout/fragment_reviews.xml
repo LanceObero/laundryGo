@@ -15,10 +15,53 @@
         android:textColor="#8D011C"
         android:layout_gravity="center" />
 
-    <ListView
-        android:id="@+id/reviews_list"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Our Service"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"/>
+        android:hint="Write your review here..."
+        android:padding="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Review"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Reviews"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/holo_blue_dark" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

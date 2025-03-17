@@ -7,5 +7,6 @@ data class OrderDetails(
     val address: String,
     val deliveryDate: String,
     val deliveryTime: String,
-    val paymentMethod: String
+    val paymentMethod: String,
+    val totalCost: String
 )

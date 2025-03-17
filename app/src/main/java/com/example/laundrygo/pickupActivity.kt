@@ -27,7 +27,7 @@ class pickupActivity : AppCompatActivity() {
 
         // Initialize Views
         etFullName = findViewById(R.id.etfullname)
-        etDate = findViewById(R.id.etDate) // FIXED: Corrected ID reference
+        etDate = findViewById(R.id.etDate)
         timePicker = findViewById(R.id.timePicker)
         btnConfirm = findViewById(R.id.buttonLogin)
         ivGcash = findViewById(R.id.ivgcash)
@@ -36,7 +36,7 @@ class pickupActivity : AppCompatActivity() {
 
         // Retrieve total cost from Intent
         totalCost = intent.getIntExtra("TOTAL_COST", 0)
-        tvTotalCost.text = "Total Cost: PHP $totalCost"
+        tvTotalCost.text = "Total Cost: PHP $totalCost" // Show total cost in UI
 
         // DatePicker setup
         etDate.inputType = android.text.InputType.TYPE_NULL
@@ -44,22 +44,21 @@ class pickupActivity : AppCompatActivity() {
 
         // Back button listener
         findViewById<ImageView>(R.id.backButton)?.setOnClickListener {
-            finish() // Finish the activity properly
+            finish()
         }
 
         // Payment method selection
         ivGcash.setOnClickListener {
             selectedPaymentMethod = "GCash"
             ivGcash.setBackgroundResource(R.drawable.selected_border)
-            ivCash.setBackgroundResource(0) // Remove border from Cash
+            ivCash.setBackgroundResource(0)
         }
 
         ivCash.setOnClickListener {
             selectedPaymentMethod = "Cash"
             ivCash.setBackgroundResource(R.drawable.selected_border)
-            ivGcash.setBackgroundResource(0) // Remove border from GCash
+            ivGcash.setBackgroundResource(0)
         }
-
 
         // Confirm button listener
         btnConfirm.setOnClickListener {
@@ -82,7 +81,7 @@ class pickupActivity : AppCompatActivity() {
     }
 
     private fun showConfirmationDialog() {
-        val orderId = "PICK" + UUID.randomUUID().toString().take(6) // FIXED: Better ID generation
+        val orderId = "PICK" + UUID.randomUUID().toString().take(6)
         val hour = timePicker.hour
         val minute = timePicker.minute
         val formattedTime = String.format("%02d:%02d", hour, minute)
@@ -111,7 +110,7 @@ class pickupActivity : AppCompatActivity() {
             Toast.makeText(this, "Pickup Confirmed!", Toast.LENGTH_LONG).show()
 
             // Navigate to home screen
-            val intent = Intent(this, home::class.java) // FIXED: Ensure correct HomeActivity name
+            val intent = Intent(this, home::class.java)
             startActivity(intent)
 
             // Close PickupActivity

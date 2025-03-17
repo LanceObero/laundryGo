@@ -5,10 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class OrderViewModel : ViewModel() {
-    private val _orderDetails = MutableLiveData<OrderDetails>()
-    val orderDetails: LiveData<OrderDetails> get() = _orderDetails
+    private val _orderList = MutableLiveData<List<OrderDetails>>(emptyList()) // Stores multiple orders
+    val orderList: LiveData<List<OrderDetails>> get() = _orderList
 
-    fun setOrderDetails(order: OrderDetails) {
-        _orderDetails.value = order
+    fun addOrder(order: OrderDetails) {
+        val currentOrders = _orderList.value.orEmpty().toMutableList()
+        currentOrders.add(order)
+        _orderList.value = currentOrders
     }
 }

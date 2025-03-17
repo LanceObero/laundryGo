@@ -1,6 +1,7 @@
 package com.example.laundrygo
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.viewModels
@@ -9,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class DeliveryActivity : AppCompatActivity() {
 
-    // Define your other views and properties here
     private lateinit var etFullName: EditText
     private lateinit var etContact: EditText
     private lateinit var etAddress: EditText
@@ -18,9 +18,12 @@ class DeliveryActivity : AppCompatActivity() {
     private lateinit var btnConfirm: Button
     private lateinit var ivGcash: ImageView
     private lateinit var ivCash: ImageView
-    private lateinit var backButton: ImageView  // Back button reference
+    private lateinit var backButton: ImageView
+    private lateinit var totalTextView: TextView
+    private lateinit var sharedPreferences: SharedPreferences
 
     private var selectedPaymentMethod: String = ""
+    private var totalCost: Int = 0
 
     private val orderViewModel: OrderViewModel by viewModels()
 
@@ -37,89 +40,88 @@ class DeliveryActivity : AppCompatActivity() {
         btnConfirm = findViewById(R.id.buttonLogin)
         ivGcash = findViewById(R.id.ivgcash)
         ivCash = findViewById(R.id.ivcash)
-        backButton = findViewById(R.id.backButton) // Initialize back button
+        backButton = findViewById(R.id.backButton)
+        totalTextView = findViewById(R.id.totalTextView)
 
-        ivGcash.setOnClickListener {
-            selectedPaymentMethod = "GCash"
-            ivGcash.setBackgroundResource(R.drawable.selected_border)
-            ivCash.setBackgroundResource(0)
-        }
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("LaundryGoPrefs", MODE_PRIVATE)
 
-        ivCash.setOnClickListener {
-            selectedPaymentMethod = "Cash"
-            ivCash.setBackgroundResource(R.drawable.selected_border)
-            ivGcash.setBackgroundResource(0)
-        }
+        // Retrieve total cost from previous activity
+        totalCost = intent.getIntExtra("TOTAL_COST", 0)
+        totalTextView.text = "Total: PHP $totalCost"
 
-        btnConfirm.setOnClickListener {
-            // Call the function here
-            showConfirmationDialog()
-        }
+        // Payment method selection
+        ivGcash.setOnClickListener { selectPaymentMethod("GCash", ivGcash, ivCash) }
+        ivCash.setOnClickListener { selectPaymentMethod("Cash", ivCash, ivGcash) }
+
+        // Confirm button click
+        btnConfirm.setOnClickListener { showConfirmationDialog() }
 
         // Handle back button click
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
+        backButton.setOnClickListener { onBackPressed() }
     }
 
     override fun onBackPressed() {
-        super.onBackPressed() // Navigates back to the previous activity
+        super.onBackPressed()
     }
 
-    // Ensure this method is defined within the DeliveryActivity class
+    private fun selectPaymentMethod(method: String, selected: ImageView, unselected: ImageView) {
+        selectedPaymentMethod = method
+        selected.setBackgroundResource(R.drawable.selected_border)
+        unselected.setBackgroundResource(0)
+    }
+
     private fun showConfirmationDialog() {
         val orderId = "ORD" + (100000..999999).random()
         val hour = timePicker.hour
         val minute = timePicker.minute
         val formattedTime = String.format("%02d:%02d", hour, minute)
-        val selectedDate = etDate.text.toString()
-        val fullName = etFullName.text.toString()
-        val contactNumber = etContact.text.toString()
-        val address = etAddress.text.toString()
+        val selectedDate = etDate.text.toString().trim()
+        val fullName = etFullName.text.toString().trim()
+        val contactNumber = etContact.text.toString().trim()
+        val address = etAddress.text.toString().trim()
 
-        if (fullName.isEmpty() || contactNumber.isEmpty() || address.isEmpty() || selectedDate.isEmpty() || selectedPaymentMethod.isEmpty()) {
+        // Validate user input
+        if (fullName.isEmpty() || contactNumber.isEmpty() || address.isEmpty() ||
+            selectedDate.isEmpty() || selectedPaymentMethod.isEmpty()) {
             Toast.makeText(this, "Please fill all details and select a payment method", Toast.LENGTH_SHORT).show()
             return
         }
 
         val receiptMessage = """
-        Order ID: $orderId
-        Name: $fullName
-        Contact: $contactNumber
-        Address: $address
-        Delivery Date: $selectedDate
-        Delivery Time: $formattedTime
-        Payment: $selectedPaymentMethod
-    """.trimIndent()
+            Order ID: $orderId
+            Name: $fullName
+            Contact: $contactNumber
+            Address: $address
+            Delivery Date: $selectedDate
+            Delivery Time: $formattedTime
+            Payment: $selectedPaymentMethod
+            Total: PHP $totalCost
+        """.trimIndent()
 
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Order Confirmation")
-        builder.setMessage(receiptMessage)
-        builder.setPositiveButton("Confirm") { dialog, _ ->
-            dialog.dismiss()
-            Toast.makeText(this, "Order Confirmed!", Toast.LENGTH_LONG).show()
+        AlertDialog.Builder(this)
+            .setTitle("Order Confirmation")
+            .setMessage(receiptMessage)
+            .setPositiveButton("Confirm") { dialog, _ ->
+                dialog.dismiss()
+                Toast.makeText(this, "Order Confirmed!", Toast.LENGTH_LONG).show()
 
-            // Set order details in ViewModel
-            val orderDetails = OrderDetails(
-                orderId = orderId,
-                fullName = fullName,
-                contactNumber = contactNumber,
-                address = address,
-                deliveryDate = selectedDate,
-                deliveryTime = formattedTime,
-                paymentMethod = selectedPaymentMethod
-            )
+                // Save order details
+                saveOrderDetails(receiptMessage)
 
-            orderViewModel.setOrderDetails(orderDetails)
+                // Navigate to HomeActivity
+                startActivity(Intent(this, home::class.java))
+                finish() // Close DeliveryActivity
+            }
+            .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
+            .create()
+            .show()
+    }
 
-            // Navigate to HomeActivity using Intent
-            val intent = Intent(this, home::class.java)
-            startActivity(intent)
-
-            // Close DeliveryActivity
-            finish() // This will close the current DeliveryActivity
-        }
-        builder.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
-        builder.create().show()
+    // ✅ Save order details to SharedPreferences for ProfileFragment retrieval
+    private fun saveOrderDetails(orderDetails: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("LATEST_ORDER", orderDetails)
+        editor.apply()
     }
 }

@@ -12,17 +12,23 @@ class ChoiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
 
+        val totalPrice = intent.getIntExtra("TOTAL_COST", 0) // Default to 0 if missing
+
+
         val buttonDelivery = findViewById<Button>(R.id.buttonLogin2)
         val buttonPickup = findViewById<Button>(R.id.buttonLogin)
 
         buttonPickup.setOnClickListener {
             val intent = Intent(this, pickupActivity::class.java) // Fixed
+            intent.putExtra("TOTAL_COST", totalPrice) // Pass the total cost
             startActivity(intent)
         }
 
         buttonDelivery.setOnClickListener {
             val intent = Intent(this, DeliveryActivity::class.java)
+            intent.putExtra("TOTAL_COST", totalPrice) // Pass the total cost
             startActivity(intent)
+
         }
 
         findViewById<ImageView>(R.id.backButton).setOnClickListener {

@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="235dp"
@@ -125,16 +126,34 @@
         app:layout_constraintTop_toBottomOf="@+id/etnum" />
 
     <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total: PHP 0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/tvpayment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etaddress"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="20dp" />
+
+    <TextView
         android:id="@+id/tvpayment"
-        android:layout_width="182dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Select payment method:"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/totalTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etaddress" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="16dp" />
+
 
     <TextView
         android:id="@+id/textView"
