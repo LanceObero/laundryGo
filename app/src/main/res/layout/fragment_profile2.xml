@@ -3,25 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="top"
+    android:padding="20dp">
 
-    android:padding="16dp">
-
+    <!-- Title (Centered at the Top) -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BOOKINGS"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#8D011C"
-        android:layout_gravity="center" />
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp"/>
 
+    <!-- Order Details (Centered in the Middle) -->
     <TextView
         android:id="@+id/receiptTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Receipt Details"
+        android:text="No order found"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:padding="8dp"/>
+        android:padding="16dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="12dp"/>
+
 </LinearLayout>
